@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity} from 'react-native';
+import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
 import config from './config';
 
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class InstaClone extends Component {
+export default class SocialFood extends Component {
   constructor() {
     super();
 

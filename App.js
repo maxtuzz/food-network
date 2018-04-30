@@ -1,12 +1,12 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native';
-import InstaClone from './src/InstaClone';
+import { SafeAreaView } from 'react-native';
+import SocialFood from './src/SocialFood';
 
 export default class App extends React.Component {
   render() {
     return (
       <SafeAreaView style={{ flex: 1 }} >
-        <InstaClone />
+        <SocialFood />
       </SafeAreaView>
     );
   }
