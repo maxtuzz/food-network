@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
 
   navigationBar: {
     width: `${100}%`,
-    height: 30,
+    height: 40,
     marginTop: 0,
     borderBottomColor: 'rgb(233, 233, 233)',
     borderBottomWidth: StyleSheet.hairlineWidth,

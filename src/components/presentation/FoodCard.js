@@ -72,8 +72,7 @@ export default class FoodCard extends Component<FoodProperties> {
   render() {
     const imageHeight = Math.floor(this.state.screenWidth * 1.1);
 
-    const uri = `${`${this.props.foodUrl
-    }=s`}${imageHeight}`;
+    const uri = `${this.props.foodUrl}=s${imageHeight}`;
 
     return (
       <View>
