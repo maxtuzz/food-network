@@ -10,6 +10,10 @@
     "react/jsx-filename-extension": [
       0
     ],
-    "react/prefer-stateless-function": "off"
+    "react/prefer-stateless-function": "off",
+    "react/prop-types": [
+      "enabled",
+      { "ignore": "ignore", "customValidators": "customValidator" }
+    ]
   }
 }
