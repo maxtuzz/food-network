@@ -44,9 +44,11 @@ const styles = StyleSheet.create({
 });
 
 interface FoodProperties {
-  name: string,
-  foodUrl: string,
-  profilePic: string
+  post : {
+    name: string,
+    foodUrl: string,
+    profilePic: string
+  }
 }
 
 export default class FoodCard extends Component<FoodProperties> {
@@ -72,7 +74,7 @@ export default class FoodCard extends Component<FoodProperties> {
   render() {
     const imageHeight = Math.floor(this.state.screenWidth * 1.1);
 
-    const uri = `${this.props.foodUrl}=s${imageHeight}`;
+    const uri = `${this.props.post.foodUrl}=s${imageHeight}`;
 
     return (
       <View>
@@ -81,10 +83,10 @@ export default class FoodCard extends Component<FoodProperties> {
             <Image
               style={styles.userPic}
               source={{
-                uri: this.props.profilePic,
+                uri: this.props.post.profilePic,
               }}
             />
-            <Text style={{ marginLeft: 10 }}>{this.props.name}</Text>
+            <Text style={{ marginLeft: 10 }}>{this.props.post.name}</Text>
           </View>
           <View style={{ alignItems: 'center' }}>
             <Text style={{ fontSize: 30 }}>...</Text>

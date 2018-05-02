@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, ScrollView, Text } from 'react-native';
+import { View, StyleSheet, ScrollView, Text, FlatList } from 'react-native';
 import { Font } from 'expo';
-import FoodCard from './components/presentation/FoodCard';
+import PostFeed from './components/container/PostFeed';
 
 const styles = StyleSheet.create({
   scrollContainer: {
@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
 });
-
 export default class SocialFood extends Component {
   constructor() {
     super();
@@ -32,6 +31,8 @@ export default class SocialFood extends Component {
   async componentDidMount() {
     this.loadAssets();
   }
+
+  keyExtractor = item => item.id;
 
   async loadAssets() {
     await Font.loadAsync({
@@ -54,18 +55,7 @@ export default class SocialFood extends Component {
           }
         </View>
 
-        <ScrollView contentContainerStyle={styles.contentContainer}>
-          <FoodCard
-            name="Max Tuzzolino"
-            foodUrl="https://lh3.googleusercontent.com/Alsn7kJfyJyv_bOP6OXyX27-fY9LiMEW1UCrNTusiPHEthb_0IjKYkmNGg3zs1iuZASMDnWhASE5lMI61JnTfR_i"
-            profilePic="https://lh3.googleusercontent.com/zBRY0VXcriPhGC1CqIAv5U1mye4FDURsN-7RGNQ6jJ3R2AB-XN5xptvHH9gCYoDYF9SLgz24tZpkMYu963t_W1ErcA"
-          />
-          <FoodCard
-            name="Giles Turner"
-            foodUrl="https://lh3.googleusercontent.com/4TagiAkGu6iVVUednzbB3BaJWlDV5DfmU7acVVdlPvoDkdbbBo-ymY9l2oSEkRaxWi3JAVwtHUxTL2LQeu3i3d0_MA"
-            profilePic="https://media.licdn.com/dms/image/C5603AQFAZf0OBkrWtg/profile-displayphoto-shrink_800_800/0?e=1530356400&v=beta&t=a-0J3rgwmygKa42OPOX-v0VzJXTwzNGGDrzIZs3mwfQ"
-          />
-        </ScrollView>
+        <PostFeed />
       </View>
     );
   }
