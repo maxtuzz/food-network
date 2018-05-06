@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, ScrollView, Text, FlatList } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import { Font } from 'expo';
-import PostFeed from './components/container/PostFeed';
+import PostFeed from '../container/PostFeed';
 
 const styles = StyleSheet.create({
   scrollContainer: {
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
 });
-export default class SocialFood extends Component {
+export default class HomeScreen extends Component {
   constructor() {
     super();
 
@@ -32,11 +32,9 @@ export default class SocialFood extends Component {
     this.loadAssets();
   }
 
-  keyExtractor = item => item.id;
-
   async loadAssets() {
     await Font.loadAsync({
-      'noodle-font': require('../assets/fonts/noodle.ttf'),
+      'noodle-font': require('../../../assets/fonts/noodle.ttf'),
     });
 
     this.setState({ fontLoaded: true });

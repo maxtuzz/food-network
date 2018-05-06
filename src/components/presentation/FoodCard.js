@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity } from 'react-native';
+import { StackNavigator, SwitchNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
 import config from '../../config';
+import ProfileScreen from '../screens/ProfileScreen';
 
 /**
  * Food card view
@@ -55,10 +57,16 @@ export default class FoodCard extends Component<FoodProperties> {
   constructor(props) {
     super(props);
 
+    alert(props);
+
     this.state = {
       liked: false,
       screenWidth: Dimensions.get('window').width,
     };
+  }
+
+  viewProfile() {
+    this.props.navigation.navigate('myStack');
   }
 
   /**
@@ -79,15 +87,21 @@ export default class FoodCard extends Component<FoodProperties> {
     return (
       <View>
         <View style={styles.userBar}>
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Image
-              style={styles.userPic}
-              source={{
+          <TouchableOpacity
+            activeOpacity={0.7}
+            onPress={() => this.viewProfile()}
+            underlayColor="white"
+          >
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <Image
+                style={styles.userPic}
+                source={{
                 uri: this.props.post.profilePic,
               }}
-            />
-            <Text style={{ marginLeft: 10 }}>{this.props.post.name}</Text>
-          </View>
+              />
+              <Text style={{ marginLeft: 10 }}>{this.props.post.name}</Text>
+            </View>
+          </TouchableOpacity>
           <View style={{ alignItems: 'center' }}>
             <Text style={{ fontSize: 30 }}>...</Text>
           </View>
