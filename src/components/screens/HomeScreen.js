@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity, SafeAreaView } from 'react-native';
 import { Font } from 'expo';
 import PostFeed from '../container/PostFeed';
+import LogoTitle from '../container/LogoTitle';
 
 const styles = StyleSheet.create({
   scrollContainer: {
@@ -20,41 +21,17 @@ const styles = StyleSheet.create({
   },
 });
 export default class HomeScreen extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      fontLoaded: false,
-    };
-  }
-
-  async componentDidMount() {
-    this.loadAssets();
-  }
-
-  async loadAssets() {
-    await Font.loadAsync({
-      'noodle-font': require('../../../assets/fonts/noodle.ttf'),
-    });
-
-    this.setState({ fontLoaded: true });
-  }
+  static navigationOptions = {
+    title: <LogoTitle />,
+  };
 
   render() {
     return (
-      <View style={{ flex: 1, width: `${100}%`, height: `${100}%` }}>
-        <View style={styles.navigationBar}>
-          {
-            this.state.fontLoaded ? (
-              <Text style={{ fontFamily: 'noodle-font', fontSize: 30 }}>
-                Noodle
-              </Text>
-            ) : null
-          }
+      <SafeAreaView style={{ flex: 1 }} >
+        <View style={{ flex: 1, width: `${100}%`, height: `${100}%` }}>
+          <PostFeed navigation={this.props.navigation} />
         </View>
-
-        <PostFeed />
-      </View>
+      </SafeAreaView>
     );
   }
 }

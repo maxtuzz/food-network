@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity } from 'react-native';
-import { StackNavigator, SwitchNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
 import config from '../../config';
-import ProfileScreen from '../screens/ProfileScreen';
 
 /**
  * Food card view
@@ -57,23 +55,16 @@ export default class FoodCard extends Component<FoodProperties> {
   constructor(props) {
     super(props);
 
-    alert(props);
-
     this.state = {
       liked: false,
       screenWidth: Dimensions.get('window').width,
     };
   }
 
-  viewProfile() {
-    this.props.navigation.navigate('myStack');
-  }
-
   /**
    * Toggle liked image
    */
   toggleLiked() {
-    alert('Long press');
     this.setState({
       liked: !this.state.liked,
     });
@@ -81,15 +72,15 @@ export default class FoodCard extends Component<FoodProperties> {
 
   render() {
     const imageHeight = Math.floor(this.state.screenWidth * 1.1);
-
     const uri = `${this.props.post.foodUrl}=s${imageHeight}`;
+    const { navigate } = this.props.navigation;
 
     return (
       <View>
         <View style={styles.userBar}>
           <TouchableOpacity
             activeOpacity={0.7}
-            onPress={() => this.viewProfile()}
+            onPress={() => navigate('profile')}
             underlayColor="white"
           >
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>

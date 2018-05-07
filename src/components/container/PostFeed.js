@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, Text } from 'react-native';
+import { FlatList} from 'react-native';
 import FoodCard from '../presentation/FoodCard';
 
 const data = [{
@@ -18,6 +18,7 @@ export default class PostFeed extends React.Component {
   renderItem = ({ item }) => (
     <FoodCard
       post={item}
+      navigation={this.props.navigation}
     />
   );
 
