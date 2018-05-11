@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList} from 'react-native';
+import { FlatList } from 'react-native';
 import FoodCard from '../presentation/FoodCard';
 
 const data = [{
@@ -13,6 +13,11 @@ const data = [{
 }];
 
 export default class PostFeed extends React.Component {
+  constructor(props) {
+    super();
+    console.log(`Postfeed${JSON.stringify(props)}`);
+  }
+
   keyExtractor = (item, index) => index.toString();
 
   renderItem = ({ item }) => (

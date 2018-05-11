@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgb(255, 255, 255)',
     flexDirection: 'row',
     paddingHorizontal: 10,
+    paddingVertical: 5,
     justifyContent: 'space-between',
   },
 
@@ -54,6 +55,7 @@ interface FoodProperties {
 export default class FoodCard extends Component<FoodProperties> {
   constructor(props) {
     super(props);
+    console.log(JSON.stringify(props.navigation ? props.navigation : 'empty'));
 
     this.state = {
       liked: false,
@@ -76,7 +78,7 @@ export default class FoodCard extends Component<FoodProperties> {
     const { navigate } = this.props.navigation;
 
     return (
-      <View>
+      <View style={{ backgroundColor: '#ffffff' }}>
         <View style={styles.userBar}>
           <TouchableOpacity
             activeOpacity={0.7}
